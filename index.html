@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Application 6 — Lockheed Flight Control PoC</title>
+<style>
+  body { font-family: sans-serif; max-width: 800px; margin: 2em auto; padding: 0 1em; line-height: 1.6; }
+  h1 { border-bottom: 2px solid #333; padding-bottom: 0.3em; }
+  .video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5em 0; }
+  .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+</style>
+</head>
+<body>
+
+<h1>Application 6 — Lockheed Flight Control Proof-of-Concept</h1>
+<p><strong>Author:</strong> Abdulrahman Fathalla</p>
+
+<h2>Project Overview</h2>
+<p>
+  This project is a real-time embedded systems proof-of-concept built on the
+  ESP32 with FreeRTOS, themed as flight control firmware for a Lockheed Martin
+  pilot training simulator. It demonstrates deterministic timing on
+  safety-critical tasks (eject input, flight envelope monitoring) while
+  servicing a soft real-time Wi-Fi dashboard for a simulated ground station.
+</p>
+
+<h2>System Highlights</h2>
+<ul>
+  <li>5 FreeRTOS tasks + 1 ISR, mixed Hard and Soft real-time</li>
+  <li>4 sync primitives: binary semaphore, counting semaphore, queue, mutex</li>
+  <li>Hardware interrupt-driven eject handler with sub-tick response</li>
+  <li>Live Wi-Fi telemetry dashboard with remote LED control</li>
+  <li>Logic analyzer trace verifies 1000 ms heartbeat period</li>
+  <li>End-to-end envelope-breach response measured at ~16 ms (50 ms hard deadline)</li>
+</ul>
+
+<h2>Demo Video</h2>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/pvL4xaDJlLE"
+          title="Application 6 Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+</div>
+
+<h2>Tech Stack</h2>
+<p>ESP32 · Arduino-ESP32 framework · FreeRTOS · Wokwi simulator · HTML/CSS web dashboard</p>
+
+</body>
+</html>
